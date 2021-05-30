@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+.palewood{
+
+  background: #eacda3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #d6ae7b, #eacda3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #d6ae7b, #eacda3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.palewood2{
+
+  background: #eacda3;  /* fallback for old browsers */
+background: -webkit-radial-gradient(#eacda3, #d6ae7b);  /* Chrome 10-25, Safari 5.1-6 */
+background: radial-gradient(#eacda3, #d6ae7b);
+}
+
+
+.navyleaf{
+  background: #76b852;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #373e1d, #535943); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #373e1d, #535943);
+}
+
+.mangopulp{
+  background: #F09819;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #976206, #9a651a);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #976206, #9a651a);
+}
