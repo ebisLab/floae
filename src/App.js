@@ -4,10 +4,15 @@ import Main from './components/Main';
 import {Switch, Route} from 'react-router-dom'
 import Details from './pages/Details';
 import Cart from './pages/Cart';
+import { AnimatePresence, motion } from "framer-motion"
 
 function App() {
   return (
     <div >
+      <AnimatePresence
+      //render 1 component at a timee
+      exitBeforeEnter
+      >
       <Switch>
 
         <Route path="/details/">
@@ -23,6 +28,7 @@ function App() {
         </Route>
         
         </Switch>
+        </AnimatePresence>
 
 
     </div>
