@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export default function Main() {
     const [store,setStore]=useState([])
@@ -15,16 +16,9 @@ export default function Main() {
     const filteredData = store.filter(({ name }) => filters_keys.includes(name));
 console.log("filteredData", filteredData );
 
-// {filteredData.map(item=>(
-//     <div key={item.id}>
-// <p>{item.name}</p>
-// <img alt={item.name} style={{height:"200px", mixBlendMode: "darken"}} src={item.image_link} />
-// </div>
-
-// ))}
     return (
-        <div style={{display:"inline-flex", width:"100%", textAlign:"center"}}>
-            <div className="mangopulp" style={{width:"33.3%", height:"100vh", paddingTop:"10%"}}>
+        <div style={{display:"inline-flex", width:"100%", height:" 100vh", textAlign:"center"}}>
+            <div className="mangopulp" style={{width:"33.3%", paddingTop:"10%"}}>
             {
                     filteredData[0] && (
                         <div>
@@ -42,7 +36,7 @@ console.log("filteredData", filteredData );
                 }
  
             </div>
-            <div className="navyleaf" style={{width:"33.3%", height:"100vh", paddingTop:"10%"}}>
+            <div className="navyleaf" style={{width:"33.3%", paddingTop:"10%"}}>
 
                 {
                     filteredData[2] && (
@@ -53,14 +47,14 @@ console.log("filteredData", filteredData );
     width: "max-content",margin: "0 50%", transform: "translateX(-50%)"}}> $ {filteredData[1].price}</p>
                         <img src= {filteredData[2].image_link} style={{height:"300px", mixBlendMode: "multiply"}}/>
 <div>
-                        <button style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</button>
+                        <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
                         </div>
                         </div>
                         
                     )
                 }
             </div>
-            <div className="palewood2" style={{width:"33.3%", height:"100vh", paddingTop:"10%"}}>
+            <div className="palewood2" style={{width:"33.3%", paddingTop:"10%"}}>
             {
                     filteredData[1] && (
                         <div>
