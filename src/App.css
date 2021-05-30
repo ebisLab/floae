@@ -54,13 +54,25 @@ background: radial-gradient(#eacda3, #d6ae7b);
 }
 
 
-.navyleaf{
+.navyleaf2{
   background: #76b852;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to top, #373e1d, #535943); /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to top, #373e1d, #535943);
 }
 
+.navyleaf{
+  background: #76b852;  /* fallback for old browsers */
+background: -webkit-radial-gradient(#535943, #373e1d); /* Chrome 10-25, Safari 5.1-6 */
+background: radial-gradient(#535943, #373e1d);
+}
+
 .mangopulp{
+  background: #F09819;  /* fallback for old browsers */
+background: -webkit-radial-gradient(#b08343,#976206);  /* Chrome 10-25, Safari 5.1-6 */
+background: radial-gradient(#b08343,#976206);
+}
+
+.mangopulp2{
   background: #F09819;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to top, #976206, #9a651a);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to bottom, #976206, #9a651a);

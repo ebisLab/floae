@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Ballerina';
+  src: local('Ballerina'), url(./assets/fonts/Ballerina.otf) format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
