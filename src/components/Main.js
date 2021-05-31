@@ -21,6 +21,7 @@ let stagger={
         }}
 }
 const easing = [0.6, -0.05, 0.01, 0.99]
+const transition={duration: 0.5}
 const fadeInUp={
     initial:{
         y: 200,
@@ -44,9 +45,10 @@ const fadeInUp={
     
        
        <motion.div 
-                exit={{opacity:0}}
         initial="initial"
         animate="animate"
+        exit={{opacity:0}}
+        transition={transition}
         >
 
         <motion.div 
