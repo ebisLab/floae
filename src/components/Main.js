@@ -59,6 +59,7 @@ const fadeInUp={
 
                {prodImgs.map((x, i) =>(
                     <motion.div
+                    key={x.id}
                     //  variants={fadeInUp}
                     initial={{
                         // width:"100%",
@@ -77,20 +78,20 @@ const fadeInUp={
 
                     key={x.id}
                     className={bgClass[i].name}
-                //     style={{display:"inline-grid", 
-                //     // width:"33.33%"
-                // }}
+                    style={{padding: "0 5%" 
+                    // width:"33.33%"
+                }}
                         >
                             <motion.div 
                             variants={fadeInUp}
                             >
-                        <div style={{height:"25%"}}>
+                        <div style={{height:"100px"}}>
                             <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "36px", fontFamily: "Ballerina", color:"wheat"}}>{filters_keys[i]}</p>
                         </div>
-                        <div style={{height: "40%"}}>
+                        <div style={{height: "50vh"}}>
                             <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{width:"50%"}}/>
                         </div>
-                        <div>
+                        <div style={{height: "100px"}}>
                             <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
                         </div>
                         </motion.div>
