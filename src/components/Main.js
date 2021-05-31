@@ -59,7 +59,7 @@ const fadeInUp={
 
                {prodImgs.map((x, i) =>(
                     <motion.div
-                    key={x.id}
+                    key={i}
                     //  variants={fadeInUp}
                     initial={{
                         // width:"100%",
@@ -85,13 +85,16 @@ const fadeInUp={
                             <motion.div 
                             variants={fadeInUp}
                             >
-                        <div style={{height:"100px"}}>
-                            <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "36px", fontFamily: "Ballerina", color:"wheat"}}>{filters_keys[i]}</p>
+                        <div style={{height:"100px", margin:"36px 0 "}}>
+                            <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "36px", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{filters_keys[i]}</p>
                         </div>
-                        <div style={{height: "50vh"}}>
-                            <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{width:"50%"}}/>
+                        <div style={{height: "45vh", verticalAlign: "bottom", display: "table-cell"}}>
+                            <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{maxWidth:"46%"}}/>
                         </div>
-                        <div style={{height: "100px"}}>
+                        <div style={{height: "100px",
+                        marginTop:"45px"
+                        //  margin: "25% 0 25%"
+                         }}>
                             <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
                         </div>
                         </motion.div>
