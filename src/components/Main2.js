@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 export default function Main() {
     const [store,setStore]=useState([])
     useEffect(() => {
-        axios.get(`https://makeup-api.herokuapp.com/api/v1/products.json?product_category=liquid&product_type=foundation`)
+        axios.get(`https://makeup-api.herokuapp.com/api/v1/products.json?product_category=liquid&product_type=foundation`,{crossdomain:true})
         .then(res=>{
             setStore(res.data)
         })
