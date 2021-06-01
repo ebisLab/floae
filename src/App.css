@@ -1,3 +1,9 @@
+body{
+  background: #76b852;  /* fallback for old browsers */
+  background: -webkit-radial-gradient(#535943, #373e1d); /* Chrome 10-25, Safari 5.1-6 */
+  background: radial-gradient(#535943, #373e1d);
+}
+
 .App {
   text-align: center;
 }
