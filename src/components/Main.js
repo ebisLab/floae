@@ -35,7 +35,7 @@ const fadeInUp={
         opacity:0
     },
     animate:{
-        y: 60,
+        y: 100,
         opacity:1,
         transition: {
             duration:2.9,
@@ -68,7 +68,15 @@ const fadeInUp={
             <motion.nav
         transition={transition} 
         animate={{ marginTop:"5px", transition:{delay:4.0, duration:.9}}}
-        style={{position: 'absolute', zIndex: 1000, marginTop:"-50px"}}>Menu menu menu menu</motion.nav>
+        style={{position: 'absolute', zIndex: 1000, marginTop:"-50px", color:"wheat", marginLeft: "50px"}}>
+            <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
+                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
+                    <li>Home</li>
+                    <li>Collections</li>
+                    <li>Featured </li>
+                    <li>Women</li>
+                </ul>
+        </motion.nav>
 
         <motion.div 
         variants={stagger}
@@ -106,18 +114,19 @@ const fadeInUp={
                 // exit={endWidth[i]}
                         >
                             <motion.div 
+                            className="product_detail_cointainer"
                             variants={fadeInUp}
-                            exit={{ x: "-10px", opacity:0, transition:{duration:1.0}}}
+                            exit={{ x: "-4px", opacity:0, transition:{duration:1.0}}}
                             >
                         <div style={{height:"100px", margin:"36px 0 "}}>
-                            <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "36px", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{filters_keys[i]}</p>
+                            <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "2em", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{filters_keys[i]}</p>
                         </div>
                         <div style={{height: "45vh", verticalAlign: "bottom", display: "table-cell"}}>
                             <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{maxWidth:"46%"}}/>
                         </div>
                         <div style={{height: "100px",
                         marginTop:"45px"
-                        //  margin: "25% 0 25%"
+                        //  margin: "66px 0px 0px;"
                          }}>
                             <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
                         </div>

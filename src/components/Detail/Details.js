@@ -5,8 +5,8 @@ export default function InfoDetails({store}) {
     console.log("sotre", store)
     const [qty, setQty]=useState(1)
     return (
-        <div style={{padding:"8%"}}>
-            <h1>{store.name}</h1>
+        <div style={{padding:"8%" }}>
+            <h1 style={{fontSize:'2em', fontFamily:'Ballerina'}}>{store.name}</h1>
             <h1>$ {store.price}</h1>
 
             <div><button style={{width:"30px", height:"30px", border:0}}>+</button><input value={qty} style={{width:"60px", height:"30px", border:0}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>

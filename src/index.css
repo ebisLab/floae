@@ -5,11 +5,16 @@
                             'embedded-opentype', and 'svg' */
 }
 
+@font-face {
+  font-family: 'Bubbles';
+  src: local('Bubbles'), url(./assets/fonts/Bubbles.otf) format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Bubbles !important';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -17,4 +22,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+div, h1, p, nav{
+  font-family: 'Bubbles';
+  color: wheat
+}
+
+nav{
+  color: wheat
+}
+
+.menu_list li{
+margin:20px
+}
+
+.menu_li ul {
+  list-style: none;
 }
