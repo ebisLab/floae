@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion'
 import mock from '../mock.json'
 
-export default function Main() {
-    const [store,setStore]=useState(mock)
+export default function Main({store}) {
+    // const [store,setStore]=useState(mock)
 
-    console.log("mocking", mock)
+    // console.log("mocking", mock)
 
     const filters_keys=[ "DaLish Silk to Matte", "Mineral Fusion Liquid Foundation", "Dr. Hauschka Foundation"]
     const bgClass=[{name:"mangopulp", width:"13.33%"}, {name:"navyleaf", width:"43.33%"},{name:"palewood2", width:"43.33%"}]
@@ -78,7 +78,7 @@ const fadeInUp={
                  
 
 
-               {prodImgs.map((x, i) =>(
+               {store.map((x, i) =>(
                     <motion.div
                     key={x.id}
                     // exit={endWidth[i]}

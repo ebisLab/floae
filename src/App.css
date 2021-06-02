@@ -1,7 +1,7 @@
 body{
   background: #76b852;  /* fallback for old browsers */
-  background: -webkit-radial-gradient(#535943, #373e1d); /* Chrome 10-25, Safari 5.1-6 */
-  background: radial-gradient(#535943, #373e1d);
+  background: -webkit-radial-gradient(#535943, #373e1d) !important; /* Chrome 10-25, Safari 5.1-6 */ 
+  background: radial-gradient(#535943, #373e1d) !important;
 }
 
 .App {
@@ -82,4 +82,14 @@ background: radial-gradient(#b08343,#976206);
   background: #F09819;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to top, #976206, #9a651a);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to bottom, #976206, #9a651a);
+}
+
+
+.description_btn{
+  background: #b07429;
+  border:none;
+  width: 200px;
+  height: 40px;
+  font-family: 'Courier New', Courier, monospace;
+  margin:10px;
 }

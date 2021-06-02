@@ -3,7 +3,7 @@ import FeaturedProducs from '../components/FeaturedProducs'
 import {motion} from 'framer-motion'
 import InfoDetails from '../components/Detail/Details'
 
-export default function Details() {
+export default function Details({store}) {
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
     return (
@@ -47,17 +47,10 @@ export default function Details() {
 
                 </motion.div>
             <motion.div 
-            // className="navyleaf" 
-        //     initial={{display:"none"}}
-        //     animate={{display:"unset", 
-        //     // transition:{delay:.9}
-        // }
-        // }
-            // animate={{width:"33.4%", transition:{ease:easing, duration: 1.7}}} 
             style={{width:"33.4%"}}>
 
                 <div>
-                    <InfoDetails/>
+                    <InfoDetails store={store[0]}/>
                 </div>
             </motion.div>
         </div>
