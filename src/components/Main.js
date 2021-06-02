@@ -73,7 +73,7 @@ const fadeInUp={
         <motion.div 
         variants={stagger}
         style={{
-             display:"inline-flex", width:"100%", height:" 100vh", textAlign:"center"}}
+             display:"inline-flex", width:"100%", height:" 100vh", textAlign:"-webkit-center"}}
              >
                  
 
@@ -97,7 +97,7 @@ const fadeInUp={
                         }
                     }}
 
-                    exit={{width:endWidth[i], opacity:appear[i] , transition:{ease:easing, duration: 1.5, delay:.5}}}
+                    exit={{ width:endWidth[i], opacity:appear[i] , transition:{ease:easing, duration: 1.5, delay:.5}}}
                     className={bgClass[i].name}
                     style={{padding: "0 5%" 
                     // width:"33.33%"
@@ -107,7 +107,7 @@ const fadeInUp={
                         >
                             <motion.div 
                             variants={fadeInUp}
-                            exit={{ marginLeft: "50px", opacity:0, transition:{duration:1.0}}}
+                            exit={{ x: "-10px", opacity:0, transition:{duration:1.0}}}
                             >
                         <div style={{height:"100px", margin:"36px 0 "}}>
                             <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "36px", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{filters_keys[i]}</p>

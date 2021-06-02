@@ -9,14 +9,11 @@ export default function Details({store}) {
     return (
 
         <motion.div
-        // initial={{opacity:0}}
-        // animate={{opacity:1}}
         transition={transition}
 
         >
             <nav
         transition={transition} 
-        // animate={{ marginTop:"5px", transition:{delay:1.0, duration:.9}}}
         style={{position: 'absolute', zIndex: 1000, marginTop:"5px"}}>Menu menu menu menu</nav>
 
         <div style={{display: 'inline-flex', height:"100vh", width:"100%"}}>
@@ -28,7 +25,7 @@ export default function Details({store}) {
                 duration:4.5,
                 ease: easing, 
             }}}
-            style={{width:"56.5%", 
+            style={{width:"60.0%", 
             position:"relative"
         }}
              >   <motion.div  
@@ -49,12 +46,12 @@ export default function Details({store}) {
             <motion.div 
             style={{width:"33.4%"}}>
 
-                <div>
+                <motion.div  animate={{opacity:1, transition: {delay:.2, duration:1.0}}} initial={{opacity:0}}>
                     <InfoDetails store={store[0]}/>
-                </div>
+                </motion.div>
             </motion.div>
         </div>
-        <FeaturedProducs/>
+        <FeaturedProducs store={store}/>
         </motion.div>
     )
 }
