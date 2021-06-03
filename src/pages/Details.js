@@ -1,31 +1,47 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import {Link} from 'react-router-dom'
 import FeaturedProducs from '../components/FeaturedProducs'
 import {motion} from 'framer-motion'
 import InfoDetails from '../components/Detail/Details'
 
 export default function Details({store}) {
+    const [canScroll, setCanScroll]=useState(false)
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
+
+
+    useEffect(() => {
+        console.log("can scroll", canScroll)
+        if(canScroll === false){
+            document.querySelector('body').classList.add('no-scroll')
+        }else{
+            document.querySelector('body').classList.remove('no-scroll')
+
+        }
+
+    },[canScroll])
     return (
 
         <motion.div
         transition={transition}
+        style={{overflowY: "hidden"}}
         >
-            {/* <nav
-        transition={transition} 
-        style={{position: 'absolute', zIndex: 1000, marginTop:"5px"}}>Menu menu menu menu</nav> */}
 
 <motion.nav
         transition={transition} 
+        onAnimationComplete={()=>setCanScroll(true)}
         animate={{ color:'rgb(63, 69, 39)', transition:{delay:1.5, duration:1, easing: 'ease'}}}
-        style={{position: 'absolute', zIndex: 1000, marginTop:"5px", color:"wheat", marginLeft: "50px"}}>
+        style={{position: 'absolute', zIndex: 1000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
                     <li><Link to="/">Home</Link></li>
                     <li>Collections</li>
                     <li>Featured </li>
                     <li>Women</li>
+                </ul>
+                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat"}}>
+                    <li>Cart</li>
+                    <li>Account</li>
                 </ul>
         </motion.nav>
 
@@ -65,6 +81,7 @@ export default function Details({store}) {
 
                 </motion.div>
             <motion.div 
+            // onAnimationComplete={()=>setCanScroll(true)}
             className="demo2"
             animate={{opacity:1, zIndex:1000, 
                 // background:"#3f4527", 
@@ -72,6 +89,8 @@ export default function Details({store}) {
             style={{width:"33.4%", zIndex:1000 }}>
 
                 <motion.div 
+                        // onAnimationComplete={()=>setCanScroll(true)}
+
                 
                  animate={{opacity:1, transition: {delay:.2, duration:.5}}} initial={{opacity:0}}>
                     <InfoDetails store={store[0]}/>

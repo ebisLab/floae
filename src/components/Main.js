@@ -8,13 +8,35 @@ export default function Main({store}) {
     // const [store,setStore]=useState(mock)
 
     // console.log("mocking", mock)
-
+    const [canScroll, setCanScroll]=useState(false)
     const filters_keys=[ "DaLish Silk to Matte", "Mineral Fusion Liquid Foundation", "Dr. Hauschka Foundation"]
     const bgClass=[{name:"mangopulp", width:"13.33%"}, {name:"navyleaf", width:"43.33%"},{name:"palewood2", width:"43.33%"}]
     const settledwidth=["38.33%", "40.33%", "36.33%" ]
     const show=["unset", "unset", "none"]
     const endWidth=["60.66%", "30.33%","0%" ]
     const appear=[1, 0, 0]
+
+    useEffect(() => {
+        console.log("can scroll", canScroll)
+        if(canScroll === false){
+            document.querySelector('body').classList.add('no-scroll')
+        }else{
+            document.querySelector('body').classList.remove('no-scroll')
+
+        }
+
+    },[canScroll])
+
+    useEffect(() => {
+        let detail =document.querySelector('.palewood2 .product_detail_cointainer')
+        console.log("DETAIL", detail)
+        detail.querySelector('h1').style.setProperty('color', 'rgb(255 240 212)');
+        detail.querySelector('p').style.setProperty('color', 'rgb(255 240 212)');
+        detail.querySelector('a').style.setProperty('color', 'rgb(255 240 212)');
+        detail.querySelector('a').style.setProperty('border', '1px solid rgb(255 240 212)');
+
+
+    },[])
 
     // const endWidth=["58.33%", "40.33%", "0" ]
     const prodImgs=["floaeJar", "floaeTube", "floaePump"]
@@ -52,29 +74,26 @@ const fadeInUp={
     
        
        <motion.div 
+       onAnimationComplete={()=>setCanScroll(true)}
         initial="initial"
         animate="animate"
-        // exit={{transition:{duration:1555}}}
-        // exit={{opacity:0, transition: {
-        //     duration:2.9,
-        //     ease: easing, 
-        //     delay: 1.2
-        // }}}
         transition={transition}
         style={{zIndex:0}}
         >
-            {/* <div style={{position: "absolute"}}>Hey hey hey</div> */}
-
             <motion.nav
         transition={transition} 
         animate={{ marginTop:"5px", transition:{delay:3.5, duration:.9}}}
-        style={{position: 'absolute', zIndex: 1000, marginTop:"-50px", color:"wheat", marginLeft: "50px"}}>
+        style={{position: 'absolute', zIndex: 1000, marginTop:"-60px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
                     <li>Home</li>
                     <li>Collections</li>
                     <li>Featured </li>
                     <li>Women</li>
+                </ul>
+                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:'#ffecc8'}}>
+                    <li>Cart</li>
+                    <li>Account</li>
                 </ul>
         </motion.nav>
 

@@ -1,5 +1,6 @@
 import React,{ useEffect, useState} from 'react'
 import {motion} from 'framer-motion'
+import {Link} from 'react-router-dom'
 
 
 
@@ -46,6 +47,9 @@ export default function FeaturedProducs({store, easing}) {
             <div key={item.id} style={{width:"33.33%"}}>
                 <h2>{item.name}</h2>
                 <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{maxWidth:"36%"}}/>
+                <div style={{ marginTop:"45px" }}>
+                    <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
+                </div>
 
             </div>))}
             </div>
