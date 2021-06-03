@@ -67,7 +67,7 @@ const fadeInUp={
 
             <motion.nav
         transition={transition} 
-        animate={{ marginTop:"5px", transition:{delay:4.0, duration:.9}}}
+        animate={{ marginTop:"5px", transition:{delay:3.5, duration:.9}}}
         style={{position: 'absolute', zIndex: 1000, marginTop:"-50px", color:"wheat", marginLeft: "50px"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
@@ -120,11 +120,15 @@ const fadeInUp={
                             >
                         <div style={{height:"100px", margin:"36px 0 "}}>
                             <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "2em", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{filters_keys[i]}</p>
+                            <h1 style={{ fontSize: "2em",
+    borderTop: "2px solid",
+    width: "fit-content"}}>${x.price}</h1>
                         </div>
                         <div style={{height: "45vh", verticalAlign: "bottom", display: "table-cell"}}>
                             <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{maxWidth:"46%"}}/>
                         </div>
-                        <div style={{height: "100px",
+                        <div style={{
+                            // height: "100px",
                         marginTop:"45px"
                         //  margin: "66px 0px 0px;"
                          }}>

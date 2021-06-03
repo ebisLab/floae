@@ -14,12 +14,12 @@ export default function AccordionContainer({store}) {
     return (
         <Accordion defaultIndex={[0]} allowToggle>
 
-            <AccordionItem>
+            <AccordionItem borderTop="1px">
     {({ isExpanded }) => (
       <>
         <h2>
           <AccordionButton>
-            <Box flex="1" textAlign="left">
+            <Box flex="1" textAlign="left" >
             Product Info
             </Box>
             {isExpanded ? (
@@ -38,7 +38,7 @@ export default function AccordionContainer({store}) {
 
 
 
-            <AccordionItem>
+            <AccordionItem borderTop="1px">
     {({ isExpanded }) => (
       <>
         <h2>
@@ -64,7 +64,7 @@ export default function AccordionContainer({store}) {
 
            
 
-<AccordionItem>
+<AccordionItem borderTop="1px" borderBottom="0px">
     {({ isExpanded }) => (
       <>
         <h2>

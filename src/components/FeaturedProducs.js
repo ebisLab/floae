@@ -30,7 +30,7 @@ export default function FeaturedProducs({store, easing}) {
             ease: easing, 
         }}}
         // className="palewood" 
-        style={{height:"120vh", width:"100%", textAlign:"center", zIndex:-1, marginTop:"-10px", zIndex:-1, fontFamily:'Bubbles', background:"#c39356;"}}>
+        style={{height:"120vh", width:"100%", textAlign:"center", zIndex:-1, marginTop:"-10px", zIndex:-1, fontFamily:'Bubbles', background:"#c39356"}}>
 <div style={{
     // zIndex:-1, 
     marginTop:"-100px", 

@@ -11,7 +11,6 @@ export default function Details({store}) {
 
         <motion.div
         transition={transition}
-
         >
             {/* <nav
         transition={transition} 
@@ -19,7 +18,7 @@ export default function Details({store}) {
 
 <motion.nav
         transition={transition} 
-        animate={{ color:'grey', transition:{delay:1.5, duration:1, easing: 'ease'}}}
+        animate={{ color:'rgb(63, 69, 39)', transition:{delay:1.5, duration:1, easing: 'ease'}}}
         style={{position: 'absolute', zIndex: 1000, marginTop:"5px", color:"wheat", marginLeft: "50px"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
@@ -67,10 +66,9 @@ export default function Details({store}) {
                 </motion.div>
             <motion.div 
             className="demo2"
-            animate={{opacity:1, zIndex:1000, background:"#3f4527", transition: {delay:1.8, duration:2.0}}}
-            // initial={{opacity:0}}
-            // className="navyleaf"
-            // animate={{background:"#3f4527", trasition:{ease:easing}}}
+            animate={{opacity:1, zIndex:1000, 
+                // background:"#3f4527", 
+                transition: {delay:1.8, duration:2.0}}}
             style={{width:"33.4%", zIndex:1000 }}>
 
                 <motion.div 
@@ -80,7 +78,11 @@ export default function Details({store}) {
                 </motion.div>
             </motion.div>
         </motion.div>
+        <div 
+        // style={{background:"orangered"}}
+        >
         <FeaturedProducs store={store} easing={easing}/>
+        </div>
         </motion.div>
     )
 }
