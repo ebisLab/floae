@@ -13,6 +13,16 @@ import { ChakraProvider } from "@chakra-ui/react"
 function App() {
   const location= useLocation();
   const [store,setStore]=useState(mock)
+  const [checkout, setCheckout]=useState([])
+
+  const addItem=(item)=>{
+    console.log("ietm", item)
+    setCheckout([...checkout, item])
+  }
+
+  const removeItem=(item)=>{
+    setCheckout(checkout.filter(movieitem=> item.imdbID !== movieitem.imdbID))
+  }
 
 
   const transition={duration: 0.5}
@@ -28,7 +38,7 @@ function App() {
       <Switch location={location} key={location.pathname}>
         
         <Route path="/details/">
-        <Details store={store}/>
+        <Details store={store} checkout={checkout} addItem={addItem}/>
         </Route>
 
         <Route path="/cart/">
@@ -36,7 +46,7 @@ function App() {
         </Route>
 
         <Route exact path="/">
-        <Main store={store}/>
+        <Main store={store} checkout={checkout} addItem={addItem}/>
         </Route>
 
         {/* </motion.div> */}

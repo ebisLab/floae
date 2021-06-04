@@ -8,9 +8,16 @@ body{
   height: 100vh;
    overflow-y: hidden;
 } */
+body{
+  /* -webkit-overflow-scrolling: auto; */
+  /* overflow: hidden; */
+  /* overflow:auto; */
+}
 
 .no-scroll {
   overflow-y: hidden;
+  overflow: hidden;
+
 }
 
 
@@ -102,5 +109,5 @@ background: linear-gradient(to bottom, #976206, #9a651a);
   width: 200px;
   height: 40px;
   font-family: 'Courier New', Courier, monospace;
-  margin:10px 0;
+  margin:10px;
 }

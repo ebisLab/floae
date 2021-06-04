@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion'
 import mock from '../mock.json'
 
-export default function Main({store}) {
+export default function Main({store, checkout, addItem}) {
     // const [store,setStore]=useState(mock)
 
     // console.log("mocking", mock)
@@ -20,9 +20,7 @@ export default function Main({store}) {
         console.log("can scroll", canScroll)
         if(canScroll === false){
             document.querySelector('body').classList.add('no-scroll')
-        }else{
-            document.querySelector('body').classList.remove('no-scroll')
-
+            document.querySelector('body').style.setProperty('overflow;', 'hidden')
         }
 
     },[canScroll])
@@ -92,7 +90,7 @@ const fadeInUp={
                     <li>Women</li>
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:'#ffecc8'}}>
-                    <li>Cart</li>
+                    <li>Cart <span style={{color:"red", fontWeight:800}}>{checkout.length}</span></li>
                     <li>Account</li>
                 </ul>
         </motion.nav>
@@ -151,6 +149,7 @@ const fadeInUp={
                         marginTop:"45px"
                         //  margin: "66px 0px 0px;"
                          }}>
+                             {/* <div style={{border:"1px solid blue", margin:"5px", padding:"5px", cursor:"pointer"}} onClick={()=>addItem(x)}>Checkout Here</div> */}
                             <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
                         </div>
                         </motion.div>

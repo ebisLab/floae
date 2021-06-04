@@ -4,7 +4,7 @@ import FeaturedProducs from '../components/FeaturedProducs'
 import {motion} from 'framer-motion'
 import InfoDetails from '../components/Detail/Details'
 
-export default function Details({store}) {
+export default function Details({store,checkout, addItem}) {
     const [canScroll, setCanScroll]=useState(false)
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
@@ -12,10 +12,14 @@ export default function Details({store}) {
 
     useEffect(() => {
         console.log("can scroll", canScroll)
+        document.querySelector('html').style.setProperty('background', 'rgb(63, 69, 39)')
         if(canScroll === false){
             document.querySelector('body').classList.add('no-scroll')
+            document.querySelector('body').style.setProperty('position', 'fixed')
         }else{
             document.querySelector('body').classList.remove('no-scroll')
+            document.querySelector('body').style.setProperty('position', 'unset')
+
 
         }
 
@@ -40,7 +44,7 @@ export default function Details({store}) {
                     <li>Women</li>
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat"}}>
-                    <li>Cart</li>
+                    <li>Cart <span style={{color:"red", fontWeight: 700}}>{checkout.length}</span></li>
                     <li>Account</li>
                 </ul>
         </motion.nav>
@@ -93,7 +97,7 @@ export default function Details({store}) {
 
                 
                  animate={{opacity:1, transition: {delay:.2, duration:.5}}} initial={{opacity:0}}>
-                    <InfoDetails store={store[0]}/>
+                    <InfoDetails store={store[0]} addItem={addItem}/>
                 </motion.div>
             </motion.div>
         </motion.div>
