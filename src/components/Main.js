@@ -90,8 +90,10 @@ const fadeInUp={
                     <li>Women</li>
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:'#ffecc8'}}>
-                    <li>Cart <span style={{color:"red", fontWeight:800}}>{checkout.length}</span></li>
-                    <li>Account</li>
+                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat"}}>
+                    <li><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></li>
+                    <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
+                </ul>
                 </ul>
         </motion.nav>
 
