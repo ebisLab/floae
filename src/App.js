@@ -42,7 +42,7 @@ function App() {
         </Route>
 
         <Route path="/cart/">
-        <Cart/>
+        <Cart checkout={checkout}/>
         </Route>
 
         <Route exact path="/">

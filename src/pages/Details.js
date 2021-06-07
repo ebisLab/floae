@@ -35,7 +35,7 @@ export default function Details({store,checkout, addItem}) {
         transition={transition} 
         onAnimationComplete={()=>setCanScroll(true)}
         animate={{ color:'rgb(63, 69, 39)', transition:{delay:1.5, duration:1, easing: 'ease'}}}
-        style={{position: 'absolute', zIndex: 1000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
+        style={{position: 'absolute', zIndex: 2000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
                     <li><Link to="/">Home</Link></li>
@@ -43,8 +43,8 @@ export default function Details({store,checkout, addItem}) {
                     <li>Featured </li>
                     <li>Women</li>
                 </ul>
-                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat"}}>
-                    <li><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></li>
+                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat", zIndex:2000}}>
+                    <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></Link></li>
                     <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
                 </ul>
         </motion.nav>
@@ -94,6 +94,9 @@ export default function Details({store,checkout, addItem}) {
 
                 <motion.div 
                         // onAnimationComplete={()=>setCanScroll(true)}
+                        initial={{opacity:1, y:0}}
+                        exit={{opacity:0, y:-30, transition:{duration:1.0, ease:easing}}}
+
 
                 
                  animate={{opacity:1, transition: {delay:.2, duration:.5}}} initial={{opacity:0}}>

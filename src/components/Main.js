@@ -81,7 +81,7 @@ const fadeInUp={
             <motion.nav
         transition={transition} 
         animate={{ marginTop:"5px", transition:{delay:3.5, duration:.9}}}
-        style={{position: 'absolute', zIndex: 1000, marginTop:"-60px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
+        style={{position: 'absolute', zIndex: 2000, marginTop:"-60px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
                     <li>Home</li>
@@ -91,7 +91,7 @@ const fadeInUp={
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:'#ffecc8'}}>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat"}}>
-                    <li><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></li>
+                    <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></Link></li>
                     <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
                 </ul>
                 </ul>
