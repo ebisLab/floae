@@ -68,9 +68,16 @@ export default function Details({store,checkout, addItem}) {
             position:"relative",
             // background:"#3f4527"
         }}
+        exit={{width:"60.0%", 
+        // opacity:0,
+        transition: {
+            duration:2.5,
+            ease: easing, 
+        }}}
              >   <motion.div  
                 animate={{opacity:1, transition: {delay:.2, duration:2.0}}}  
                 initial={{opacity:0}}
+                // exit={{opacity:0}}
                 style={{
                     height:"100%",
                     width:"100%", 
@@ -95,7 +102,10 @@ export default function Details({store,checkout, addItem}) {
                 <motion.div 
                         // onAnimationComplete={()=>setCanScroll(true)}
                         initial={{opacity:1, y:0}}
-                        exit={{opacity:0, y:-30, transition:{duration:1.0, ease:easing}}}
+                        exit={{opacity:0, y:-30, 
+                            // transition:{duration:1.0, ease:easing}
+                        }
+                        }
 
 
                 

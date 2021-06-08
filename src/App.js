@@ -31,6 +31,7 @@ function App() {
     <div >
       <AnimatePresence
       //render 1 component at a timee
+      // initial={false}
       exitBeforeEnter
       >
                

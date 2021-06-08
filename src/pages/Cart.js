@@ -7,7 +7,10 @@ export default function Cart({checkout}) {
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
     return (
-        <motion.div>
+        <motion.div
+        // initial={{opacity:0}}
+        // animate={{opacity:1}}
+        >
 
         <motion.nav
         transition={transition} 
@@ -28,14 +31,22 @@ export default function Cart({checkout}) {
                 </ul>
         </motion.nav>
         <div style={{display: 'inline-flex', height:"100vh", width:"100%"}}>
-            <div className="navyleaf" style={{width:"66.6%"}}>
+            <motion.div className="navyleaf"
+            initial={{width:"60.0%"}}
+            animate={{
+                opacity:1,
+                width:"80.0%", transition: {
+                duration:2.5,
+                ease: easing, 
+            }}}
+             >
             <motion.div  
-                // animate={{opacity:1, transition: {delay:.2, duration:2.0}}}  
-                // initial={{opacity:0}}
+            initial={{opacity:0}}
+            animate={{opacity:1}}
                 style={{
                     height:"100%",
-                    width:"66.6%", 
-                    position:"absolute",
+                    width:"100.0%", 
+                    // position:"absolute",
                     left:0,
                     bottom:0,
                     backgroundSize:" cover",
@@ -43,8 +54,21 @@ export default function Cart({checkout}) {
             backgroundImage:`url(${require('../assets/images/Details/cosmetic-cart.jpg').default})`, 
             zIndex:1
         }}></motion.div>
-            </div>
-            <motion.div className="mangopulp" initial={{y:50, opacity:0}} animate={{y:0, opacity:1, transition:{ease:easing, duration:1.0, }}} style={{width:"33.4%"}}>
+            </motion.div>
+
+            <motion.div className="mangopulp" initial={{opacity:0}} 
+            style={{width:"40.0%"}}
+            animate={{opacity:1, transition:{ease:easing, duration:1.0}}} 
+
+            >
+            <motion.div  
+            initial={{y:50, opacity:0}} 
+            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0}}} 
+            // style={{width:"33.4%"}}
+            // style={{width:"40.0%"}}
+            style={{padding: "18% 8%"}}
+
+            >
                 <h1 style={{fontFamily:'Ballerina', fontSize:'3em'}}>My Cart</h1>
             {checkout.map(item=>(
                 <div style={{display: 'inline-flex',}} >
@@ -64,6 +88,7 @@ export default function Cart({checkout}) {
             
             
             </motion.div>
+            </motion.div >
         </div>
         </motion.div>
     )
