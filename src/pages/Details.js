@@ -69,15 +69,21 @@ export default function Details({store,checkout, addItem}) {
             // background:"#3f4527"
         }}
         exit={{width:"60.0%", 
-        // opacity:0,
+        backgroundSize:" cover",
+        backgroundPosition: "bottom right",
+backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
+
+        // background:'red',
         transition: {
-            duration:2.5,
+            duration:1.5,
             ease: easing, 
-        }}}
+        }
+    }
+    }
              >   <motion.div  
-                animate={{opacity:1, transition: {delay:.2, duration:2.0}}}  
-                initial={{opacity:0}}
-                // exit={{opacity:0}}
+                // animate={{transition: {delay:.2, duration:2.0}}}  
+                initial={{opacity:1}}
+                exit={{opacity:0}}
                 style={{
                     height:"100%",
                     width:"100%", 
@@ -100,7 +106,6 @@ export default function Details({store,checkout, addItem}) {
             style={{width:"33.4%", zIndex:1000 }}>
 
                 <motion.div 
-                        // onAnimationComplete={()=>setCanScroll(true)}
                         initial={{opacity:1, y:0}}
                         exit={{opacity:0, y:-30, 
                             // transition:{duration:1.0, ease:easing}

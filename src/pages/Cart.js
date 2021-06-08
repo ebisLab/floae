@@ -41,8 +41,9 @@ export default function Cart({checkout}) {
             }}}
              >
             <motion.div  
-            initial={{opacity:0}}
-            animate={{opacity:1}}
+            initial={{opacity:1}}
+            // initial={{opacity:0}}
+            // animate={{opacity:1}}
                 style={{
                     height:"100%",
                     width:"100.0%", 
@@ -64,19 +65,19 @@ export default function Cart({checkout}) {
             <motion.div  
             initial={{y:50, opacity:0}} 
             animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0}}} 
-            // style={{width:"33.4%"}}
-            // style={{width:"40.0%"}}
             style={{padding: "18% 8%"}}
-
             >
                 <h1 style={{fontFamily:'Ballerina', fontSize:'3em'}}>My Cart</h1>
             {checkout.map(item=>(
                 <div style={{display: 'inline-flex',}} >
-                    <div><div style={{width:"120px", height:"120px", backgroundSize:"cover", backgroundImage:`url(${item.image_link})`}}/></div>
                     <div>
-                        <div>{item.name}</div>
-                        <div><input style={{width:"50px"}} value="1" /></div>
-                        <div style={{fontWeight:600, fontSize:'1.5em'}}> ${item.price}</div>
+                    <img src={require('../assets/images/'+item.image_link).default} style={{width:"120px"}}/>
+                    
+                        </div>
+                        <div>
+                            <div>{item.name}</div>
+                            <div><input style={{width:"50px"}} value="1" /></div>
+                            <div style={{fontWeight:600, fontSize:'1.5em'}}> ${item.price}</div>
                         </div>
                 </div>
             ))}

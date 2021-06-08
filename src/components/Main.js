@@ -9,7 +9,6 @@ export default function Main({store, checkout, addItem}) {
 
     // console.log("mocking", mock)
     const [canScroll, setCanScroll]=useState(false)
-    const filters_keys=[ "DaLish Silk to Matte", "Mineral Fusion Liquid Foundation", "Dr. Hauschka Foundation"]
     const bgClass=[{name:"mangopulp", width:"13.33%"}, {name:"navyleaf", width:"43.33%"},{name:"palewood2", width:"43.33%"}]
     const settledwidth=["38.33%", "40.33%", "36.33%" ]
     const show=["unset", "unset", "none"]
@@ -36,10 +35,6 @@ export default function Main({store, checkout, addItem}) {
 
     },[])
 
-    // const endWidth=["58.33%", "40.33%", "0" ]
-    const prodImgs=["floaeJar", "floaeTube", "floaePump"]
-
-// let easing=[0.5, -0.05, 0.01, 0.99]
 
 let stagger={
     animate: {
@@ -138,13 +133,13 @@ const fadeInUp={
                             exit={{ x: "-4px", opacity:0, transition:{duration:1.0}}}
                             >
                         <div style={{height:"100px", margin:"36px 0 "}}>
-                            <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "2em", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{filters_keys[i]}</p>
+                            <p style={{ fontStyle: "normal", fontWeight: 700, fontSize: "2em", fontFamily: "Ballerina", color:"wheat", margin: 0}}>{x.name}</p>
                             <h1 style={{ fontSize: "2em",
     borderTop: "2px solid",
     width: "fit-content"}}>${x.price}</h1>
                         </div>
                         <div style={{height: "45vh", verticalAlign: "bottom", display: "table-cell"}}>
-                            <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{maxWidth:"46%"}}/>
+                            <img src={require('../assets/images/'+x.image_link).default} style={{maxWidth:"46%"}}/>
                         </div>
                         <div style={{
                             // height: "100px",
