@@ -1,23 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
 
 export default function Cart({checkout}) {
+    const [total, setTotal]=useState()
+
+    console.log("checkout", checkout.flatMap(item=>Number(item.price)))
 
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
     return (
-        <motion.div
-        // initial={{opacity:0}}
-        // animate={{opacity:1}}
-        >
+        <motion.div>
 
         <motion.nav
         transition={transition} 
-        // animate={{ color:'rgb(63, 69, 39)', transition:{delay:1.5, duration:1, easing: 'ease'}}}
         style={{position: 'absolute', zIndex: 1000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
 
-        {/* // style={{position: 'absolute', zIndex: 2000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}> */}
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
                     <li><Link to="/">Home</Link></li>
@@ -67,25 +65,52 @@ export default function Cart({checkout}) {
             animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0}}} 
             style={{padding: "18% 8%"}}
             >
+                <div style={{overflow:'scroll', height:'600px'}}>
                 <h1 style={{fontFamily:'Ballerina', fontSize:'3em'}}>My Cart</h1>
+                
+                <div style={{paddingBottom:"10px"}}>
             {checkout.map(item=>(
                 <div style={{display: 'inline-flex',}} >
                     <div>
-                    <img src={require('../assets/images/'+item.image_link).default} style={{width:"120px"}}/>
+                    <Link to={`/details/${item.id}`} ><img src={require('../assets/images/'+item.image_link).default} style={{ maxWidth: "90px",
+    maxHeight: "150px", width:"70%"}}/></Link>
                     
                         </div>
                         <div>
-                            <div>{item.name}</div>
-                            <div><input style={{width:"50px"}} value="1" /></div>
+                            <div style={{fontSize:"1.3em"}}>{item.name}</div>
+                            <div>
+
+                            <div
+            style={{border: "1px solid",
+                width: "fit-content"}}
+            ><button style={{width:"30px", height:"30px", border:0}}>+</button>
+            <input value="1" style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
+                            </div>
                             <div style={{fontWeight:600, fontSize:'1.5em'}}> ${item.price}</div>
                         </div>
                 </div>
             ))}
+            </div>
 
-                        <div>Subtotal</div>
-                        <div>Shipping</div>
-                        <div>Total</div>
-                        <button>Checkout</button>
+                        <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
+                            <div style={{fontSize:"1.3em", width:"50%"}}>Subtotal</div>
+                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em"}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0)}</div>
+                        </div>
+                        <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
+                            <div style={{fontSize:"1.3em", width:"50%"}}>Shipping</div>
+                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em"}}>Free</div>
+                        </div>
+                        
+                        <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
+                            <div style={{fontSize:"1.3em", width:"50%"}}>Total</div>
+                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em", fontWeight:600}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0)}</div>
+                        </div>
+                        <button className="description_btn" 
+                        style={{background:"#3f4527", width:"100%"}}
+                        // onClick={()=>addItem(store)}
+                        >Checkout</button>
+                        </div>
+
             
             
             </motion.div>

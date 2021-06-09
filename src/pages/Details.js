@@ -1,14 +1,19 @@
 import React,{useEffect,useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import FeaturedProducs from '../components/FeaturedProducs'
 import {motion} from 'framer-motion'
 import InfoDetails from '../components/Detail/Details'
 
 export default function Details({store,checkout, addItem}) {
+    const {infoID} = useParams();
     const [canScroll, setCanScroll]=useState(false)
+    const [data, setData] = useState(
+        store.filter(item=>item.id === Number(infoID))
+    )
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
 
+    console.log("imgggg bg", data[0].image_link)
 
     useEffect(() => {
         console.log("can scroll", canScroll)
@@ -71,7 +76,9 @@ export default function Details({store,checkout, addItem}) {
         exit={{width:"60.0%", 
         backgroundSize:" cover",
         backgroundPosition: "bottom right",
-backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
+        backgroundImage:`url(${require(`../assets/images/Details/${data[0].product_detail_img}`).default})`, 
+
+// backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
 
         // background:'red',
         transition: {
@@ -92,30 +99,29 @@ backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`,
                     bottom:0,
                     backgroundSize:" cover",
                     backgroundPosition: "bottom right",
-            backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
+                    // backgroundImage:`url(${require(`../assets/images/Details/Pump.jpg`).default})`, 
+                    backgroundImage:`url(${require(`../assets/images/Details/${data[0].product_detail_img}`).default})`, 
+
+            // backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
             zIndex:1
         }}></motion.div>
 
                 </motion.div>
             <motion.div 
-            // onAnimationComplete={()=>setCanScroll(true)}
             className="demo2"
             animate={{opacity:1, zIndex:1000, 
-                // background:"#3f4527", 
                 transition: {delay:1.8, duration:2.0}}}
             style={{width:"33.4%", zIndex:1000 }}>
 
                 <motion.div 
                         initial={{opacity:1, y:0}}
                         exit={{opacity:0, y:-30, 
-                            // transition:{duration:1.0, ease:easing}
-                        }
-                        }
+                        }}
 
 
                 
                  animate={{opacity:1, transition: {delay:.2, duration:.5}}} initial={{opacity:0}}>
-                    <InfoDetails store={store[0]} addItem={addItem}/>
+                    <InfoDetails store={data[0]} addItem={addItem}/>
                 </motion.div>
             </motion.div>
         </motion.div>

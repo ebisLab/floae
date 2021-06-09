@@ -3,7 +3,7 @@ import Main from './components/Main';
 import {Switch, Route, useLocation} from 'react-router-dom'
 import Details from './pages/Details';
 import Cart from './pages/Cart';
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 import mock from './mock.json'
 import { useState } from 'react';
 import { ChakraProvider } from "@chakra-ui/react"
@@ -29,16 +29,12 @@ function App() {
   return (
     <ChakraProvider>
     <div >
-      <AnimatePresence
-      //render 1 component at a timee
-      // initial={false}
-      exitBeforeEnter
-      >
+      <AnimatePresence exitBeforeEnter>
                
 
       <Switch location={location} key={location.pathname}>
         
-        <Route path="/details/">
+        <Route path="/details/:infoID">
         <Details store={store} checkout={checkout} addItem={addItem}/>
         </Route>
 
@@ -50,7 +46,6 @@ function App() {
         <Main store={store} checkout={checkout} addItem={addItem}/>
         </Route>
 
-        {/* </motion.div> */}
 
         
         </Switch>

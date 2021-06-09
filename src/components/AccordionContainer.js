@@ -29,7 +29,7 @@ export default function AccordionContainer({store}) {
             )}
           </AccordionButton>
         </h2>
-        <AccordionPanel pb={4}>{store.description}</AccordionPanel>
+        <AccordionPanel pb={4} style={{height:"300px", overflow: "scroll"}}>{store.description}</AccordionPanel>
       </>
     )}
   </AccordionItem>

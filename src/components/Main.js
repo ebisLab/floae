@@ -147,7 +147,7 @@ const fadeInUp={
                         //  margin: "66px 0px 0px;"
                          }}>
                              {/* <div style={{border:"1px solid blue", margin:"5px", padding:"5px", cursor:"pointer"}} onClick={()=>addItem(x)}>Checkout Here</div> */}
-                            <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
+                            <Link to={`/details/${x.id}`} style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
                         </div>
                         </motion.div>
                     

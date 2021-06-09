@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Accordion from '../AccordionContainer'
 
 export default function InfoDetails({store, addItem}) {
-    console.log("sotre", store)
     const [qty, setQty]=useState(1)
     return (
         <div style={{padding:"18% 8%" }}>
@@ -15,7 +14,8 @@ export default function InfoDetails({store, addItem}) {
             <div
             style={{border: "1px solid",
                 width: "fit-content"}}
-            ><button style={{width:"30px", height:"30px", border:0}}>+</button><input value={qty} style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
+            ><button style={{width:"30px", height:"30px", border:0}}>+</button>
+            <input value={qty} style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
 </div>
             <div>
                 <button className="description_btn" onClick={()=>addItem(store)}>Add To Cart</button>
