@@ -14,6 +14,7 @@ function App() {
   const location= useLocation();
   const [store,setStore]=useState(mock)
   const [checkout, setCheckout]=useState([])
+  const [isItTrans, setIsItTrans]=useState(false)
 
   const addItem=(item)=>{
     console.log("ietm", item)
@@ -21,7 +22,9 @@ function App() {
   }
 
   const removeItem=(item)=>{
-    setCheckout(checkout.filter(movieitem=> item.imdbID !== movieitem.imdbID))
+    console.log("item", item)
+    console.log("checkout", checkout)
+    setCheckout(checkout.filter(movieitem=> item.id !== movieitem.id))
   }
 
 
@@ -39,7 +42,7 @@ function App() {
         </Route>
 
         <Route path="/cart/">
-        <Cart checkout={checkout}/>
+        <Cart checkout={checkout} removeItem={removeItem}/>
         </Route>
 
         <Route exact path="/">

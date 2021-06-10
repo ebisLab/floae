@@ -10,6 +10,7 @@ export default function Details({store,checkout, addItem}) {
     const [data, setData] = useState(
         store.filter(item=>item.id === Number(infoID))
     )
+    const [transAnimation, setTransAnimation]=useState(false)
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
 
@@ -29,15 +30,16 @@ export default function Details({store,checkout, addItem}) {
         }
 
     },[canScroll])
+    console.log("trans animation", transAnimation)
     return (
 
         <motion.div
         transition={transition}
         style={{overflowY: "hidden"}}
+        exit={{transition:{delay:222}}}
         >
 
 <motion.nav
-// initial={false}
         transition={transition} 
         onAnimationComplete={()=>setCanScroll(true)}
         animate={{ color: data[0].menu_color, transition:{delay:1.5, duration:1, easing: 'ease'}}}
@@ -50,7 +52,9 @@ export default function Details({store,checkout, addItem}) {
                     <li>Women</li>
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat", zIndex:2000}}>
-                <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
+                <li><Link to="/cart" 
+                onClick={()=>setTransAnimation(true)}
+                ><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
                     <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
                 </ul>
         </motion.nav>
@@ -58,9 +62,7 @@ export default function Details({store,checkout, addItem}) {
         <motion.div
         transition={transition}
         animate={{background:"#3f4527", transition:{ease:easing}}}
-        // className="navyleaf" 
         style={{display: 'inline-flex', height:"110vh", width:"100%", 
-        // position:"relative"
         }}>
             <motion.div 
             className="mangopulp" 
@@ -72,16 +74,11 @@ export default function Details({store,checkout, addItem}) {
             }}}
             style={{width:"60.0%", 
             position:"relative",
-            // background:"#3f4527"
         }}
         exit={{width:"60.0%", 
-        backgroundSize:" cover",
-        backgroundPosition: "bottom right",
-        backgroundImage:`url(${require(`../assets/images/Details/${data[0].product_detail_img}`).default})`, 
-
-// backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
-
-        // background:'red',
+        backgroundSize:transAnimation?"cover":"",
+        backgroundPosition: transAnimation?"bottom right":"",
+        backgroundImage: transAnimation?`url(${require(`../assets/images/Details/cosmetic-cart.jpg`).default})`:"", 
         transition: {
             duration:1.5,
             ease: easing, 
@@ -89,9 +86,8 @@ export default function Details({store,checkout, addItem}) {
     }
     }
              >   <motion.div  
-                // animate={{transition: {delay:.2, duration:2.0}}}  
                 initial={{opacity:1}}
-                exit={{opacity:0}}
+                exit={{opacity:0, transition: {duration:1.5}}}
                 style={{
                     height:"100%",
                     width:"100%", 
@@ -117,6 +113,7 @@ export default function Details({store,checkout, addItem}) {
                 <motion.div 
                         initial={{opacity:1, y:0}}
                         exit={{opacity:0, y:-30, 
+                            transition:{delay:.3, duration:1.5}
                         }}
 
 
@@ -126,9 +123,7 @@ export default function Details({store,checkout, addItem}) {
                 </motion.div>
             </motion.div>
         </motion.div>
-        <div 
-        // style={{background:"orangered"}}
-        >
+        <div>
         <FeaturedProducs store={store} easing={easing}/>
         </div>
         </motion.div>

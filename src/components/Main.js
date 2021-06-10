@@ -27,10 +27,10 @@ export default function Main({store, checkout, addItem}) {
     useEffect(() => {
         let detail =document.querySelector('.palewood2 .product_detail_cointainer')
         console.log("DETAIL", detail)
-        detail.querySelector('h1').style.setProperty('color', 'rgb(255 240 212)');
-        detail.querySelector('p').style.setProperty('color', 'rgb(255 240 212)');
-        // detail.querySelector('a').style.setProperty('color', 'rgb(255 240 212)');
-        // detail.querySelector('a').style.setProperty('border', '1px solid rgb(255 240 212)');
+        detail.querySelector('h1').style.setProperty('color', 'rgb(161 110 33)');
+        detail.querySelector('p').style.setProperty('color', 'rgb(161 110 33)');
+        detail.querySelector('button').style.setProperty('color', 'rgb(161 110 33)');
+        detail.querySelector('button').style.setProperty('border', '1px solid rgb(161 110 33)');
 
 
     },[])

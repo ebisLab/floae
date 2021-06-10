@@ -1,11 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
 
-export default function Cart({checkout}) {
+export default function Cart({checkout, removeItem}) {
     const [total, setTotal]=useState()
+    const [canScroll, setCanScroll]=useState(false)
+
 
     console.log("checkout", checkout.flatMap(item=>Number(item.price)))
+
+    useEffect(() => {
+        console.log("can scroll", canScroll)
+        if(canScroll === false){
+            document.querySelector('body').classList.add('no-scroll')
+            document.querySelector('body').style.setProperty('overflow;', 'hidden')
+        }
+
+    },[canScroll])
 
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
@@ -43,7 +54,7 @@ export default function Cart({checkout}) {
             // initial={{opacity:0}}
             // animate={{opacity:1}}
                 style={{
-                    height:"100%",
+                    height:"110%",
                     width:"100.0%", 
                     // position:"absolute",
                     left:0,
@@ -62,7 +73,7 @@ export default function Cart({checkout}) {
             >
             <motion.div  
             initial={{y:50, opacity:0}} 
-            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0, delay:2.5}}} 
+            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0, delay:2.2}}} 
             style={{padding: "18% 8%"}}
             >
                 <div style={{overflowY:'scroll', overflowX: "hidden",  height:'600px'}}>
@@ -78,13 +89,18 @@ export default function Cart({checkout}) {
                         </div>
                         <div>
                             <div style={{fontSize:"1.3em"}}>{item.name}</div>
+                            <div style={{display:"inline-flex"}}>
                             <div>
-
-                            <div
-            style={{border: "1px solid",
-                width: "fit-content"}}
-            ><button style={{width:"30px", height:"30px", border:0}}>+</button>
-            <input value="1" style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
+                                <div style={{border: "1px solid",width: "fit-content"}}>
+                                    <button style={{width:"30px", height:"30px", border:0}}>+</button>
+                                    <input value="1" style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
+                                </div>
+                                <div 
+                                style={{cursor: "pointer"}}
+                                onClick={()=>removeItem(item)}
+                                >
+                                    <i className="pe-7s-trash" style={{fontSize:"1.3em", fontWeight:600, padding:"5px 24px 0px 15px"}}></i>
+                                </div>
                             </div>
                             <div style={{fontWeight:600, fontSize:'1.5em'}}> ${Number(item.price).toFixed(2)}</div>
                         </div>
