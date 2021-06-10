@@ -73,10 +73,10 @@ export default function Cart({checkout, removeItem}) {
             >
             <motion.div  
             initial={{y:50, opacity:0}} 
-            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0, delay:2.2}}} 
+            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0, delay:0.5}}} 
             style={{padding: "18% 8%"}}
             >
-                <div style={{overflowY:'scroll', overflowX: "hidden",  height:'600px'}}>
+                <div style={{overflowY:'scroll', overflowX: "hidden",  height:'600px', width:"395px"}}>
                 <h1 style={{fontFamily:'Ballerina', fontSize:'3em'}}>My Cart</h1>
                 
                 <div style={{paddingBottom:"10px"}}>
