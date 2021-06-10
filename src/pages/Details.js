@@ -13,7 +13,7 @@ export default function Details({store,checkout, addItem}) {
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
 
-    console.log("imgggg bg", data[0].image_link)
+
 
     useEffect(() => {
         console.log("can scroll", canScroll)
@@ -37,9 +37,10 @@ export default function Details({store,checkout, addItem}) {
         >
 
 <motion.nav
+// initial={false}
         transition={transition} 
         onAnimationComplete={()=>setCanScroll(true)}
-        animate={{ color:'rgb(63, 69, 39)', transition:{delay:1.5, duration:1, easing: 'ease'}}}
+        animate={{ color: data[0].menu_color, transition:{delay:1.5, duration:1, easing: 'ease'}}}
         style={{position: 'absolute', zIndex: 2000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
@@ -49,7 +50,7 @@ export default function Details({store,checkout, addItem}) {
                     <li>Women</li>
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat", zIndex:2000}}>
-                    <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></Link></li>
+                <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
                     <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
                 </ul>
         </motion.nav>

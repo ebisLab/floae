@@ -1,6 +1,7 @@
 [
     {
         "id": 331,
+        "menu_color": "wheat",
         "collection": "floae",
         "name": "Skintone Matching Serum",
         "price": "17.29",
@@ -35,6 +36,7 @@
     },
     {
         "id": 323,
+        "menu_color": "rgb(63, 69, 39)",
         "collection": "dr. hauschka",
         "name": "Botanical Creme",
         "price": "39.0",
@@ -80,6 +82,7 @@
     },
     {
         "id": 319,
+        "menu_color": "rgb(63, 69, 39)",
         "collection": "revlon",
         "name": "Silky Skin Serum",
         "price": "19.99",

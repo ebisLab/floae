@@ -111,3 +111,9 @@ background: linear-gradient(to bottom, #976206, #9a651a);
   font-family: 'Courier New', Courier, monospace;
   margin:10px;
 }
+
+.stuff_cart{
+  color:wheat !important;
+  background: tomato;
+    padding: 3px 9px;
+}

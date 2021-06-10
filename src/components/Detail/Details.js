@@ -6,7 +6,7 @@ export default function InfoDetails({store, addItem}) {
     return (
         <div style={{padding:"18% 8%" }}>
             <h1 style={{fontSize:'2em', fontFamily:'Ballerina'}}>{store.name}</h1>
-            <h1 style={{fontSize:'1.8em', borderBottom:'1px solid'}}>$ {store.price}</h1>
+            <h1 style={{fontSize:'1.8em', borderBottom:'1px solid'}}>$ {Number(store.price).toFixed(2)}</h1>
             <div style={{paddingTop:'5%'}}>Quantity</div>
             
             <div style={{display:"inline-flex"}}>

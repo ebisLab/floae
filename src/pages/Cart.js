@@ -24,7 +24,7 @@ export default function Cart({checkout}) {
                     <li>Women</li>
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat", zIndex:2000}}>
-                    <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span style={{color:"salmon", fontWeight: 700, position:"relative", top:'-20px', left:'-14px'}}>{checkout.length}</span></Link></li>
+                <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
                     <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
                 </ul>
         </motion.nav>
@@ -62,10 +62,10 @@ export default function Cart({checkout}) {
             >
             <motion.div  
             initial={{y:50, opacity:0}} 
-            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0}}} 
+            animate={{y:0, opacity:1, transition:{ease:easing, duration:2.0, delay:2.5}}} 
             style={{padding: "18% 8%"}}
             >
-                <div style={{overflow:'scroll', height:'600px'}}>
+                <div style={{overflowY:'scroll', overflowX: "hidden",  height:'600px'}}>
                 <h1 style={{fontFamily:'Ballerina', fontSize:'3em'}}>My Cart</h1>
                 
                 <div style={{paddingBottom:"10px"}}>
@@ -86,7 +86,7 @@ export default function Cart({checkout}) {
             ><button style={{width:"30px", height:"30px", border:0}}>+</button>
             <input value="1" style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
                             </div>
-                            <div style={{fontWeight:600, fontSize:'1.5em'}}> ${item.price}</div>
+                            <div style={{fontWeight:600, fontSize:'1.5em'}}> ${Number(item.price).toFixed(2)}</div>
                         </div>
                 </div>
             ))}
@@ -94,7 +94,7 @@ export default function Cart({checkout}) {
 
                         <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
                             <div style={{fontSize:"1.3em", width:"50%"}}>Subtotal</div>
-                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em"}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0)}</div>
+                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em"}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0).toFixed(2)}</div>
                         </div>
                         <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
                             <div style={{fontSize:"1.3em", width:"50%"}}>Shipping</div>
@@ -103,7 +103,7 @@ export default function Cart({checkout}) {
                         
                         <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
                             <div style={{fontSize:"1.3em", width:"50%"}}>Total</div>
-                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em", fontWeight:600}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0)}</div>
+                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em", fontWeight:600}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0).toFixed(2)}</div>
                         </div>
                         <button className="description_btn" 
                         style={{background:"#3f4527", width:"100%"}}
