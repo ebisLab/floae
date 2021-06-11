@@ -3,8 +3,10 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion'
 import mock from '../mock.json'
+import useIntro from '../utils/useIntro'
 
 export default function Main({store, checkout, addItem}) {
+    const showAnimation = useIntro();
     // const [store,setStore]=useState(mock)
 
     // console.log("mocking", mock)
@@ -16,7 +18,6 @@ export default function Main({store, checkout, addItem}) {
     const appear=[1, 0, 0]
 
     useEffect(() => {
-        console.log("can scroll", canScroll)
         if(canScroll === false){
             document.querySelector('body').classList.add('no-scroll')
             document.querySelector('body').style.setProperty('overflow;', 'hidden')
@@ -26,7 +27,6 @@ export default function Main({store, checkout, addItem}) {
 
     useEffect(() => {
         let detail =document.querySelector('.palewood2 .product_detail_cointainer')
-        console.log("DETAIL", detail)
         detail.querySelector('h1').style.setProperty('color', 'rgb(161 110 33)');
         detail.querySelector('p').style.setProperty('color', 'rgb(161 110 33)');
         detail.querySelector('button').style.setProperty('color', 'rgb(161 110 33)');
@@ -78,6 +78,7 @@ const addIntoCart=(e,item)=>{
         style={{zIndex:0}}
         >
             <motion.nav
+            initial={showAnimation?'':false}
         transition={transition} 
         animate={{ marginTop:"5px", transition:{delay:3.5, duration:.9}}}
         style={{position: 'absolute', zIndex: 2000, marginTop:"-60px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
