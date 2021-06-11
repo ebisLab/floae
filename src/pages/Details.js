@@ -43,7 +43,7 @@ export default function Details({store,checkout, addItem}) {
         transition={transition} 
         onAnimationComplete={()=>setCanScroll(true)}
         animate={{ color: data[0].menu_color, transition:{delay:1.5, duration:1, easing: 'ease'}}}
-        style={{position: 'absolute', zIndex: 2000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
+        style={{position: 'absolute', zIndex: 20000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
             <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
                     <li><Link to="/">Home</Link></li>
