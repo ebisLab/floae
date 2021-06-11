@@ -18,6 +18,8 @@ export default function Cart({checkout, removeItem}) {
 
     },[canScroll])
 
+    console.log("insite cart", checkout)
+
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
     return (
@@ -93,13 +95,14 @@ export default function Cart({checkout, removeItem}) {
                             <div>
                                 <div style={{border: "1px solid",width: "fit-content"}}>
                                     <button style={{width:"30px", height:"30px", border:0}}>+</button>
-                                    <input value="1" style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
+                                    <input value={item.quantity} style={{width:"25px", height:"30px", border:0, background:"none", textAlign:"center"}}/><button style={{width:"30px", height:"30px", border:0}}>-</button></div>
                                 </div>
-                                <div 
-                                style={{cursor: "pointer"}}
+                                <div style={{width:"175px", textAlign:"right"}}>
+                                <div >
+                                    <i
                                 onClick={()=>removeItem(item)}
-                                >
-                                    <i className="pe-7s-trash" style={{fontSize:"1.3em", fontWeight:600, padding:"5px 24px 0px 15px"}}></i>
+                                    className="pe-7s-close" style={{fontSize:"2.3em", cursor: "pointer", padding:"0px 24px 0px 15px"}}></i>
+                                </div>
                                 </div>
                             </div>
                             <div style={{fontWeight:600, fontSize:'1.5em'}}> ${Number(item.price).toFixed(2)}</div>

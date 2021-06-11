@@ -4,7 +4,7 @@ import FeaturedProducs from '../components/FeaturedProducs'
 import {motion} from 'framer-motion'
 import InfoDetails from '../components/Detail/Details'
 
-export default function Details({store,checkout, addItem}) {
+export default function Details({store,checkout, setStore, addItem}) {
     const {infoID} = useParams();
     const [canScroll, setCanScroll]=useState(false)
     const [data, setData] = useState(
@@ -18,6 +18,7 @@ export default function Details({store,checkout, addItem}) {
 
     useEffect(() => {
         console.log("can scroll", canScroll)
+        setData([{...data[0],quantity:1}])
         document.querySelector('html').style.setProperty('background', 'rgb(63, 69, 39)')
         if(canScroll === false){
             document.querySelector('body').classList.add('no-scroll')
@@ -31,6 +32,7 @@ export default function Details({store,checkout, addItem}) {
 
     },[canScroll])
     console.log("trans animation", transAnimation)
+    console.log("data**",data)
     return (
 
         <motion.div
@@ -119,7 +121,7 @@ export default function Details({store,checkout, addItem}) {
 
                 
                  animate={{opacity:1, transition: {delay:.2, duration:.5}}} initial={{opacity:0}}>
-                    <InfoDetails store={data[0]} addItem={addItem}/>
+                    <InfoDetails store={data[0]} data={data} addItem={addItem} setStore={setStore} setData={setData} checkout={checkout}/>
                 </motion.div>
             </motion.div>
         </motion.div>

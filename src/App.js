@@ -38,7 +38,7 @@ function App() {
       <Switch location={location} key={location.pathname}>
         
         <Route path="/details/:infoID">
-        <Details store={store} checkout={checkout} addItem={addItem}/>
+        <Details store={store} setStore={setStore} checkout={checkout} addItem={addItem}/>
         </Route>
 
         <Route path="/cart/">

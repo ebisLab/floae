@@ -109,8 +109,7 @@ const addIntoCart=(e,item)=>{
                    
                     <motion.div
                     key={x.id}
-                    // exit={endWidth[i]}
-                    key={i}
+s
                     //  variants={fadeInUp}
                     initial={{
                         width:bgClass[i].width,
