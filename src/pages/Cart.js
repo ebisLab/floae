@@ -19,6 +19,7 @@ export default function Cart({checkout, removeItem}) {
     },[canScroll])
 
     console.log("insite cart", checkout)
+    console.log("reduce", checkout.reduce((a, {price,quantity}) => a + Number(price)*(quantity), 0))
 
     const transition={duration: 0.5}
     const easing = [0.6, -0.05, 0.01, 0.99]
@@ -122,7 +123,7 @@ export default function Cart({checkout, removeItem}) {
                         
                         <div style={{display: 'inline-flex',width:"100%", borderTop:"1px solid", padding:"10px"}}>
                             <div style={{fontSize:"1.3em", width:"50%"}}>Total</div>
-                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em", fontWeight:600}}>$ {checkout.reduce((a, {price}) => a + Number(price), 0).toFixed(2)}</div>
+                            <div style={{width:"50%", textAlign:"right", fontSize:"1.2em", fontWeight:600}}>$ {(checkout.reduce((a, {price,quantity}) => a + Number(price)*(quantity), 0)).toFixed(2)}</div>
                         </div>
                         <button className="description_btn" 
                         style={{background:"#3f4527", width:"100%"}}
