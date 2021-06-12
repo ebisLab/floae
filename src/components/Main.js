@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import mock from '../mock.json'
 import useIntro from '../utils/useIntro'
 
-export default function Main({store, checkout, addItem}) {
+export default function Main({store, checkout, addItem, localCart}) {
     const showAnimation = useIntro();
     // const [store,setStore]=useState(mock)
 
@@ -109,7 +109,6 @@ const addIntoCart=(e,item)=>{
                    
                     <motion.div
                     key={x.id}
-s
                     //  variants={fadeInUp}
                     initial={{
                         width:bgClass[i].width,
@@ -160,6 +159,7 @@ s
                             <button style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}} onClick={(e)=>addIntoCart(e,x)}>Add To Cart</button>
                         </div>
                         </motion.div>
+                   
                     </Link>
                     </motion.div>
                     

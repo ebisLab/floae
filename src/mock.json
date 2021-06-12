@@ -4,7 +4,7 @@
         "quantity": 0,
         "menu_color": "wheat",
         "collection": "floae",
-        "name": "Skintone Matching Serum",
+        "name": "Color Matching Serum",
         "price": "17.29",
         "price_sign": null,
         "currency": null,
@@ -92,6 +92,42 @@
         "price_sign": null,
         "currency": null,
         "image_link": "floaePump.png",
+        "product_detail_img": "Pump.jpg",
+        "website_link": "https://well.ca",
+        "description": "Floae Makeup  provides longwearing coverage with a lightweight \nformula that won’t cake, fade, or rub off.  With Time Release Technology\n specifically formulated for combination or oily skin to control oil \nabsorption and shine.  Your look stays flawless throughout the day. Features: Makeup feels comfortable and wears up to 24 hours.Medium to full coverage.Comes in a great range of beautiful shades. \n",
+        "rating": 3.8,
+        "category": "liquid",
+        "product_type": "foundation",
+        "tag_list": [],
+        "created_at": "2016-10-01T18:31:28.181Z",
+        "updated_at": "2017-12-23T21:08:20.629Z",
+        "product_api_url": "https://makeup-api.herokuapp.com/api/v1/products/319.json",
+        "api_featured_image": "//s3.amazonaws.com/donovanbailey/products/api_featured_images/000/000/319/original/data?1514063300",
+        "product_colors": [
+            {
+                "hex_value": "#FACAAA",
+                "colour_name": "Ivory "
+            },
+            {
+                "hex_value": "#F9C79F",
+                "colour_name": "Buff "
+            },
+            {
+                "hex_value": "#D6A285",
+                "colour_name": "True Beige "
+            }
+        ]
+    },
+    {
+        "id": 311,
+        "quantity": 0,
+        "menu_color": "rgb(63, 69, 39)",
+        "collection": "revlon",
+        "name": "Glass Skin Moisture",
+        "price": "19.99",
+        "price_sign": null,
+        "currency": null,
+        "image_link": "pump1.png",
         "product_detail_img": "Pump.jpg",
         "website_link": "https://well.ca",
         "description": "Floae Makeup  provides longwearing coverage with a lightweight \nformula that won’t cake, fade, or rub off.  With Time Release Technology\n specifically formulated for combination or oily skin to control oil \nabsorption and shine.  Your look stays flawless throughout the day. Features: Makeup feels comfortable and wears up to 24 hours.Medium to full coverage.Comes in a great range of beautiful shades. \n",

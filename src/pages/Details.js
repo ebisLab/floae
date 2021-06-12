@@ -4,7 +4,7 @@ import FeaturedProducs from '../components/FeaturedProducs'
 import {motion} from 'framer-motion'
 import InfoDetails from '../components/Detail/Details'
 
-export default function Details({store,checkout, setStore, addItem}) {
+export default function Details({store,checkout, setStore, addItem, localCart}) {
     const {infoID} = useParams();
     const [canScroll, setCanScroll]=useState(false)
     const [data, setData] = useState(
@@ -31,14 +31,12 @@ export default function Details({store,checkout, setStore, addItem}) {
         }
 
     },[canScroll])
-    console.log("trans animation", transAnimation)
-    console.log("data**",data)
+
     return (
 
         <motion.div
         transition={transition}
         style={{overflowY: "hidden"}}
-        exit={{transition:{delay:222}}}
         >
 
 <motion.nav
@@ -126,7 +124,7 @@ export default function Details({store,checkout, setStore, addItem}) {
             </motion.div>
         </motion.div>
         <div>
-        <FeaturedProducs store={store} easing={easing}/>
+        <FeaturedProducs addItem={addItem} store={store} easing={easing} />
         </div>
         </motion.div>
     )
