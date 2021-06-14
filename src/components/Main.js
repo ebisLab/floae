@@ -156,7 +156,7 @@ const addIntoCart=(e,item)=>{
                          }}>
                              {/* <div style={{border:"1px solid blue", margin:"5px", padding:"5px", cursor:"pointer"}} onClick={()=>addItem(x)}>Checkout Here</div> */}
                             {/* <Link to={`/details/${x.id}`} style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link> */}
-                            <button style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}} onClick={(e)=>addIntoCart(e,x)}>Add To Cart</button>
+                            <button style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}} onClick={(e)=>addIntoCart(e,{...x, quantity: x.quantity+1})}>Add To Cart</button>
                         </div>
                         </motion.div>
                    
