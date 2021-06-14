@@ -34,30 +34,32 @@ export default function Details({store,checkout, setStore, addItem, localCart}) 
 
     return (
 
-        <motion.div
-        transition={transition}
-        style={{overflowY: "hidden"}}
-        >
-
-<motion.nav
-        transition={transition} 
-        onAnimationComplete={()=>setCanScroll(true)}
-        animate={{ color: data[0].menu_color, transition:{delay:1.5, duration:1, easing: 'ease'}}}
-        style={{position: 'absolute', zIndex: 20000, marginTop:"5px", color:"wheat", padding:"5px 50px 0px", width:"100%"}}>
-            <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
-                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
-                    <li><Link to="/">Home</Link></li>
-                    <li>Collections</li>
-                    <li>Featured </li>
-                    <li>Women</li>
-                </ul>
-                <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat", zIndex:2000}}>
-                <li><Link to="/cart" 
-                onClick={()=>setTransAnimation(true)}
-                ><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
-                    <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
-                </ul>
-        </motion.nav>
+        <motion.div transition={transition} style={{overflowY: "hidden"}}>
+            <motion.nav
+                transition={transition} 
+                onAnimationComplete={()=>setCanScroll(true)}
+                animate={{ color: data[0].menu_color, transition:{delay:1.5, duration:1, easing: 'ease'}}}
+                style={{
+                    position: 'absolute', 
+                    zIndex: 20000, 
+                    marginTop:"5px", 
+                    color:"wheat", 
+                    padding:"5px 50px 0px", 
+                    width:"100%"}}>
+                <span style={{fontFamily:'Ballerina', fontSize:"3em", fontWeight:700}}>Floae</span>
+                    <ul className="menu_list" style={{display:"inline-flex", listStyle:"none"}}>
+                        <li><Link to="/">Home</Link></li>
+                        <li>Collections</li>
+                        <li>Featured </li>
+                        <li>Women</li>
+                    </ul>
+                    <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat", zIndex:2000}}>
+                    <li><Link to="/cart" 
+                    onClick={()=>setTransAnimation(true)}
+                    ><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
+                        <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
+                    </ul>
+            </motion.nav>
 
         <motion.div
         transition={transition}
@@ -82,8 +84,7 @@ export default function Details({store,checkout, setStore, addItem, localCart}) 
         transition: {
             duration:1.5,
             ease: easing, 
-        }
-    }
+        }}
     }
              >   <motion.div  
                 initial={{opacity:1}}
@@ -96,7 +97,6 @@ export default function Details({store,checkout, setStore, addItem, localCart}) 
                     bottom:0,
                     backgroundSize:" cover",
                     backgroundPosition: "bottom right",
-                    // backgroundImage:`url(${require(`../assets/images/Details/Pump.jpg`).default})`, 
                     backgroundImage:`url(${require(`../assets/images/Details/${data[0].product_detail_img}`).default})`, 
 
             // backgroundImage:`url(${require('../assets/images/Details/Pump.jpg').default})`, 
@@ -111,15 +111,23 @@ export default function Details({store,checkout, setStore, addItem, localCart}) 
             style={{width:"33.4%", zIndex:1000 }}>
 
                 <motion.div 
+
                         initial={{opacity:1, y:0}}
                         exit={{opacity:0, y:-30, 
-                            transition:{delay:.3, duration:1.5}
+                            width:"457px",
+                            position:"absolute",
+                            right:0,
+                            transition:{delay:.1, duration:1.5}
                         }}
-
-
-                
-                 animate={{opacity:1, transition: {delay:.2, duration:.5}}} initial={{opacity:0}}>
-                    <InfoDetails store={data[0]} data={data} addItem={addItem} setStore={setStore} setData={setData} checkout={checkout}/>
+                        // exit={{transition:{delay:2222}}}
+                        animate={{opacity:1, transition: {delay:.2, duration:.5}}}>
+                    <InfoDetails 
+                        store={data[0]} 
+                        data={data} 
+                        addItem={addItem} 
+                        setStore={setStore} 
+                        setData={setData} 
+                        checkout={checkout}/>
                 </motion.div>
             </motion.div>
         </motion.div>

@@ -147,13 +147,9 @@ const addIntoCart=(e,item)=>{
     width: "fit-content"}}>${Number(x.price).toFixed(2)}</h1>
                         </div>
                         <div style={{height: "45vh", verticalAlign: "bottom", display: "table-cell"}}>
-                            <img src={require('../assets/images/'+x.image_link).default} style={{maxWidth:"46%"}}/>
+                            <img alt={x.name} src={require('../assets/images/'+x.image_link).default} style={{maxWidth:"46%"}}/>
                         </div>
-                        <div style={{
-                            // height: "100px",
-                        marginTop:"45px"
-                        //  margin: "66px 0px 0px;"
-                         }}>
+                        <div style={{ marginTop:"45px" }}>
                              {/* <div style={{border:"1px solid blue", margin:"5px", padding:"5px", cursor:"pointer"}} onClick={()=>addItem(x)}>Checkout Here</div> */}
                             {/* <Link to={`/details/${x.id}`} style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link> */}
                             <button style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}} onClick={(e)=>addIntoCart(e,{...x, quantity: x.quantity+1})}>Add To Cart</button>
