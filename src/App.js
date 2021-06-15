@@ -1,12 +1,11 @@
 import './App.css';
-import {useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import Main from './components/Main';
 import {Switch, Route, useLocation} from 'react-router-dom'
 import Details from './pages/Details';
 import Cart from './pages/Cart';
 import { AnimatePresence } from "framer-motion"
 import mock from './mock.json'
-import { useState } from 'react';
 import { ChakraProvider } from "@chakra-ui/react"
 
 
@@ -16,12 +15,20 @@ function App() {
   const [store,setStore]=useState(mock)
   const [localCart, setLocalCart]=useState()
   const [checkout, setCheckout]=useState([])
-  const [isItTrans, setIsItTrans]=useState(false)
 
   const addItem=(item)=>{
-    console.log("ietm", item)
-    setCheckout([...checkout, item])
-    localStorage.setItem('cart-items', JSON.stringify([...checkout, item]))
+    const check_index = checkout.findIndex(i=>i.id === item.id)
+
+    if(check_index !== -1){
+      let newval=checkout.find(i=>i.id === item.id)
+      newval.quanitity=item.quantity
+    }else{
+      console.log("This ID is NOT in the cart")
+      setCheckout([...checkout, item])
+    }
+  
+    // setCheckout([...checkout, item])
+    // localStorage.setItem('cart-items', JSON.stringify([...checkout, item]))
   }
 
   const removeItem=(item)=>{
