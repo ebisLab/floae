@@ -21,7 +21,7 @@ function App() {
 
     if(check_index !== -1){
       let newval=checkout.find(i=>i.id === item.id)
-      newval.quanitity=item.quantity
+      newval.quanitity+=item.quantity
     }else{
       console.log("This ID is NOT in the cart")
       setCheckout([...checkout, item])
