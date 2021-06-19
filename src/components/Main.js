@@ -91,6 +91,26 @@ const addIntoCart=(e,item)=>{
                 </ul>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:'#ffecc8'}}>
                 <ul className="menu_list" style={{display:"inline-flex", listStyle:"none", float:"right", color:"wheat"}}>
+                <li>
+                    <Link to="/cart">
+                        <i 
+                        className="pe-7s-shopbag" 
+                        style={{
+                            fontSize:"1.7em", 
+                            fontWeight:"600"}}>
+                        </i>
+                        <span className={localCart && localCart.length>0?"stuff_cart":""} 
+                        style={{
+                            color:"tomato", 
+                            fontWeight: 700, 
+                            position:"relative", 
+                            top:'-20px', 
+                            left:'-14px', 
+                            borderRadius:"50%"
+                            }}>{checkout.length>0 ? localCart.length: checkout.length }</span>
+                    </Link>
+                </li>
+
                     <li><Link to="/cart"><i className="pe-7s-cart" style={{fontSize:"1.7em", fontWeight:"600"}}></i><span className={checkout.length>0?"stuff_cart":""} style={{color:"tomato", fontWeight: 700, position:"relative", top:'-20px', left:'-14px', borderRadius:"50%"}}>{checkout.length}</span></Link></li>
                     <li><i className="pe-7s-user" style={{fontSize:"1.7em", fontWeight:"600"}}></i></li>
                 </ul>

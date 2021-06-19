@@ -21,12 +21,21 @@ function App() {
 
     if(check_index !== -1){
       let newval=checkout.find(i=>i.id === item.id)
+      // let local_newval= localCart.find(i=>i.id === item.id)
+      let local2 = JSON.parse(localStorage.getItem('cart-items')).find(i=>i.id === item.id)
       // newval.push({quantity:item.quantity})
       // newval.quanitity+=item.quantity
+      // console.log("local retrieved", local_newval)
       newval.quantity += item.quantity
+      local2.quantity += item.quantity
+      // console.log("addition", local_newval.quantity += item.quantity)
+      localStorage.setItem('cart-items', JSON.stringify([...new Set(checkout, local2)]))
+
     }else{
-      console.log("This ID is NOT in the cart")
+      console.log("This ID is NOT in hthe cart")
       setCheckout([...checkout, item])
+      localStorage.setItem('cart-items', JSON.stringify([...checkout, item]))
+      
     }
   
     // setCheckout([...checkout, item])

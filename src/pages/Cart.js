@@ -86,8 +86,15 @@ export default function Cart({checkout, removeItem, localCart}) {
             {checkout.map(item=>(
                 <div style={{display: 'inline-flex',}} >
                     <div>
-                    <Link to={`/details/${item.id}`} ><img src={require('../assets/images/'+item.image_link).default} style={{ maxWidth: "90px",
-    maxHeight: "150px", width:"70%"}}/></Link>
+                    <Link to={`/details/${item.id}`} >
+                        <img 
+                        alt={item.name}
+                        src={require('../assets/images/'+item.image_link).default} 
+                        style={{ 
+                            maxWidth: "90px", 
+                            maxHeight: "150px", 
+                            width:"70%"}}/>
+                    </Link>
                     
                         </div>
                         <div>
