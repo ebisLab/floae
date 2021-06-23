@@ -67,7 +67,7 @@ let stagger={
     width: "max-content",margin: "0 50%", transform: "translateX(-50%)"}}> $ {filteredData[1].price}</p>
                         <img src={require('../assets/images/floaeTube.png').default} style={{width:"46%"}}/>
 <div>
-                        <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
+                        <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add</Link>
                         </div>
                         </div>
                         
