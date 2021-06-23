@@ -16,6 +16,7 @@ export default function Main() {
 
     const filteredData = store.filter(({ name }) => filters_keys.includes(name));
 console.log("filteredData", filteredData );
+console.log("checking it out")
 
 let easing=[0.5, -0.05, 0.01, 0.99]
 
