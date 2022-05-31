@@ -1,20 +1,24 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import Accordion from '../AccordionContainer'
 
 export default function InfoDetails({store, data, setStore,setData, addItem, checkout}) {
     const [qty, setQty]=useState(0)
-    const [recordQty, setRecordQty]=useState({quantity:2})
-    const [cart, setCart]=useState(0)
+    const [recordQty, 
+        // setRecordQty
+    ]=useState({quantity:2})
+    const [cart, 
+        // setCart
+    ]=useState(0)
 
-    const updateCartHandler = (id, value) => {
-        let num=0
-        console.log("IDD",id)
-        console.log("vallluee", num +=value)
-        console.log("check this out", checkout.map(item=>item.id===id))
-        let updatedCart = checkout.map(item => item.id === id ? item.quantity += value : item)     
-        setCart(updatedCart)
+    // const updateCartHandler = (id, value) => {
+    //     let num=0
+    //     console.log("IDD",id)
+    //     console.log("vallluee", num +=value)
+    //     console.log("check this out", checkout.map(item=>item.id===id))
+    //     let updatedCart = checkout.map(item => item.id === id ? item.quantity += value : item)     
+    //     setCart(updatedCart)
      
-     }
+    //  }
 
     //  useEffect(() => {
     //      setData([{...store, quantity:30}])

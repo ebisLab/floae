@@ -60,7 +60,7 @@ function App() {
 
 console.log("local cart", localCart)
 
-  const transition={duration: 0.5}
+  // const transition={duration: 0.5}
   return (
     <ChakraProvider>
     <div >

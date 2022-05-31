@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 
 export default function FeaturedProducs({store, easing,addItem}) {
-    const prodImgs=["floaeJar", "floaeTube", "floaePump"]
+    // const prodImgs=["floaeJar", "floaeTube", "floaePump"]
     const [offsetY, setOffsetY] = useState(0);
     const handleScroll =()=> setOffsetY(window.pageYOffset)
 
@@ -31,7 +31,9 @@ export default function FeaturedProducs({store, easing,addItem}) {
             ease: easing, 
         }}}
         // className="palewood" 
-        style={{height:"120vh", width:"100%", textAlign:"center", zIndex:-1, marginTop:"-10px", zIndex:-1, fontFamily:'Bubbles', background:"#c39356"}}>
+        style={{height:"120vh", width:"100%", 
+        textAlign:"center", marginTop:"-10px", 
+        zIndex:-1, fontFamily:'Bubbles', background:"#c39356"}}>
 <div style={{
     // zIndex:-1, 
     marginTop:"-100px", 
@@ -50,7 +52,7 @@ export default function FeaturedProducs({store, easing,addItem}) {
                             <h2 style={{ fontSize: "1.4em", width: "fit-content"}}>${Number(item.price).toFixed(2)}</h2>
                         </div>
                         <Link to={`/details/${item.id}`} style={{height: "35vh", verticalAlign: "bottom", display: "table-cell"}}>
-                            <img src={require('../assets/images/'+ item.image_link).default} style={{maxWidth:"36%"}}/>
+                            <img alt={item.name} src={require('../assets/images/'+ item.image_link).default} style={{maxWidth:"36%"}}/>
                         </Link>
                         <div style={{ marginTop:"45px" }}>
                             <button onClick={()=>addItem({...item, quantity:item.quantity+1})}
@@ -69,11 +71,3 @@ export default function FeaturedProducs({store, easing,addItem}) {
 
 
 
-{/* <div key={item.id} style={{width:"33.33%"}}>
-                <h2>{item.name}</h2>
-                <img src={require('../assets/images/'+prodImgs[i]+'.png').default} style={{maxWidth:"36%"}}/>
-                <div style={{ marginTop:"45px" }}>
-                    <Link to="/details"style={{border: "1px solid wheat", background: "none", padding: "10px", color:"wheat"}}>Add to Cart</Link>
-                </div>
-
-            </div> */}

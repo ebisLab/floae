@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion'
-import mock from '../mock.json'
 import useIntro from '../utils/useIntro'
 
-export default function Main({store, checkout, addItem, localCart}) {
+export default function Main({store, checkout, addItem, 
+    // localCart
+}) {
     const showAnimation = useIntro();
     // const [store,setStore]=useState(mock)
 
@@ -13,7 +13,7 @@ export default function Main({store, checkout, addItem, localCart}) {
     const [canScroll, setCanScroll]=useState(false)
     const bgClass=[{name:"mangopulp", width:"13.33%"}, {name:"navyleaf", width:"43.33%"},{name:"palewood2", width:"43.33%"}]
     const settledwidth=["38.33%", "40.33%", "36.33%" ]
-    const show=["unset", "unset", "none"]
+    // const show=["unset", "unset", "none"]
     const endWidth=["60.66%", "30.33%","0%" ]
     const appear=[1, 0, 0]
 

@@ -15,7 +15,7 @@ useEffect(() => {
         storage.setItem('timestamp', currTimestamp.toString()) 
         : 
         storage.setItem('timestamp', timestamp.toString());
-}, []);
+});
 
 return hasTimePassed;
 };

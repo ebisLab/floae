@@ -3,8 +3,10 @@ import {motion} from 'framer-motion'
 import {Link} from 'react-router-dom'
 
 export default function Cart({checkout, removeItem, localCart}) {
-    const [total, setTotal]=useState()
-    const [canScroll, setCanScroll]=useState(false)
+    // const [total, setTotal]=useState()
+    const [canScroll, 
+        // setCanScroll
+    ]=useState(false)
 
 
     console.log("checkout", checkout.flatMap(item=>Number(item.price)))
